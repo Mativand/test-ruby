@@ -1,7 +1,12 @@
 class JsonController <ApplicationController
   def index
+    @data = []
     @tags = Tag.all
     @lessons = Lesson.all
-    render json: @tags + @lessons
+
+    @data.push @tags
+    @data.push @lessons
+
+    render json: @data
   end
 end
